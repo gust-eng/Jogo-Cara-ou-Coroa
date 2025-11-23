@@ -1,15 +1,92 @@
 .container {
-  width: 184vh;
-  min-height: 86vh;
-  background-size: cover;
-  background-position: center;
-  padding: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  backdrop-filter: blur(2px);
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(180deg, #1f1b2e, #2d2647, #3a3161);
+    position: relative;
+    display: flex;
+}
+
+.titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 550px;
+
+    .logo {
+        width: 130px;
+        image-rendering: pixelated;
+    }
+
+    h1 {
+        top: 40px;
+        left: 40px;
+        font-family: 'Press Start 2P', sans-serif;
+        font-size: 4rem;
+        color: transparent; 
+        text-shadow:
+            3px 3px #b49fed,
+            6px 6px #462c8e;    
+
+    }
 }
 
 
+.botoes {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
 
+    button {
+        font-size: 20px;
+        background: rgba(178, 149, 208, 0.55);
+        color: white;
+        border-radius: 10px;
+        border: 2px solid rgba(89, 89, 108, 0.55);
+        padding: 10px;
+        padding-left: 280px;
+        padding-right: 280px;
+        transition: 0.3s ease;
+        
+    }
+
+  
+
+    &:hover button {
+        filter: blur(3px);
+        opacity: 0.4;
+    }
+
+    button:hover {
+        filter: blur(0);
+        opacity: 1;
+        transform: translateX(6px);
+        background: rgba(29, 18, 33, 0.2);
+        margin-left: 80px;
+    }
+}
+
+.btjogo:hover ~ .container,
+.fundo-jogo:hover {
+    background-image: url('../assets/imgs/jogar.gif');
+}
+
+.btperfil:hover ~ .container,
+.fundo-perfil:hover {
+    background-image: url('../assets/imgs/perfil.gif');
+}
+
+.btopcoes:hover ~ .container,
+.fundo-opcoes:hover {
+    background-image: url('../assets/imgs/opcoes.gif');
+}
+
+.btcreditos:hover ~ .container,
+.fundo-creditos:hover {
+    background-image: url('../assets/imgs/creditos.gif');
+}

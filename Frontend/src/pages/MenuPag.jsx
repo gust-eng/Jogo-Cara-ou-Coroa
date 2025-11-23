@@ -1,32 +1,60 @@
 import './MenuPag.scss'
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import fundo from '../assets/imgs/fundo.jpeg'
+import Logo from '../assets/imgs/logo.png';
 
 export default function Menu() {
 
-const navigate = useNavigate();
+    const navigate = useNavigate();
+    const [bg, setBg] = useState(null);
 
     return (
-    <div className='container'
-    style={{backgroundImage:`url(${fundo})`,backgroundSize:"cover", backgroundPosition:"center" }}>
-        <div>
-            <h1>GameForge</h1>
-<p>A GameForge é uma plataforma dedicada a reunir uma seleção diversificada de 
-jogos com qualidade, acessibilidade e desempenho. Nosso objetivo é oferecer 
-uma experiência confiável e 
-organizada, permitindo que cada usuário explore conteúdos interativos de
-forma prática, segura e intuitiva.
-Trabalhamos continuamente para ampliar nosso catálogo, aprimorar funcionalidades 
-e garantir um ambiente estável, pensado tanto para jogadores casuais quanto para 
-entusiastas que buscam novas experiências.</p>
-            <div>
-                <button onClick={() => navigate('/jogos')}>Jogar</button>
-                <button onClick={() => navigate('/opçoes')}>Opções</button>
-                <button onClick={() => navigate('/creditos')}>Creditos</button>
+        <div 
+            className='container' 
+            style={{ backgroundImage: bg ? `url(${bg})` : 'black' }}
+        >
+            <div className='titulo'>
+                <img src={Logo} className='logo' />
+                <h1>GameForge</h1>
+            </div>
+
+            <div className='botoes'>
+                <button 
+                    className="btjogo" 
+                    onMouseEnter={() => setBg('/src/assets/imgs/jogar.gif')}
+                    onMouseLeave={() => setBg(null)}
+                    onClick={() => navigate('/jogos')}
+                >
+                    Jogar
+                </button>
+
+                <button 
+                    className="btperfil" 
+                    onMouseEnter={() => setBg('/src/assets/imgs/perfil.gif')}
+                    onMouseLeave={() => setBg(null)}
+                    onClick={() => navigate('/perfil')}
+                >
+                    Perfil
+                </button>
+
+                <button 
+                    className="btopcoes" 
+                    onMouseEnter={() => setBg('/src/assets/imgs/opcoes.gif')}
+                    onMouseLeave={() => setBg(null)}
+                    onClick={() => navigate('/opçoes')}
+                >
+                    Opções
+                </button>
+
+                <button 
+                    className="btcreditos" 
+                    onMouseEnter={() => setBg('/src/assets/imgs/creditos.gif')}
+                    onMouseLeave={() => setBg(null)}
+                    onClick={() => navigate('/creditos')}
+                >
+                    Créditos
+                </button>
             </div>
         </div>
-        
-    </div>
-    )
+    );
 }
